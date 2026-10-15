@@ -1,0 +1,393 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Sensory Echoes</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700;800&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: Bauhaus grid on black. Hard rules, primary blocks, one geometric sign per room: I red square, II yellow triangle, III blue circle. Single dark look by design. */
+:root{
+  --black:#0B0B0B;
+  --paper:#F1EEE7;
+  --grey:#8F8C86;
+  --red:#E1271C;
+  --yellow:#F3C316;
+  --blue:#2148C8;
+  --line:rgba(241,238,231,.22);
+  --sans:"Jost","Futura","Avenir Next","Helvetica Neue",Arial,sans-serif;
+  --mono:"DM Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--black);color:var(--paper);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-weight:800;text-transform:uppercase;letter-spacing:-.01em;line-height:.92;text-wrap:balance}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--paper)}
+:focus-visible{outline:2px solid var(--yellow);outline-offset:3px}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+figure{margin:0}
+figcaption{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);margin-top:10px}
+
+/* header */
+.top{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding-block:18px;border-bottom:2px solid var(--paper)}
+.top .name{font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:14px}
+.top nav{display:flex;gap:0}
+.top nav a{text-decoration:none;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-left:1px solid var(--line)}
+.top nav a:hover{background:var(--paper);color:var(--black)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:repeat(12,1fr);gap:0;border-bottom:2px solid var(--paper)}
+.hero > *{min-width:0}
+.hero-title{grid-column:1/8;padding-block:48px 40px;padding-right:24px;position:relative;border-right:2px solid var(--paper)}
+.hero-title h1{font-size:clamp(58px,10.5vw,150px);position:relative;z-index:1}
+.hero-title h1 .e{display:block;color:var(--black);-webkit-text-stroke:2px var(--paper)}
+.disc{position:absolute;right:28px;top:40px;width:clamp(70px,12vw,150px);aspect-ratio:1;border-radius:50%;background:var(--red);max-width:100%}
+.hero-title .lede{margin-top:36px;font-size:clamp(19px,1.9vw,23px);font-weight:500;max-width:28ch}
+.funders{margin-top:32px;display:grid;gap:12px;justify-items:start}
+.funders a{display:block;padding:12px 0;max-width:100%}
+.funders img{height:76px;width:auto;max-width:100%;object-fit:contain}
+.funders p{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--paper)}
+.hero-img{grid-column:8/13;padding:24px 0 24px 24px;display:grid;align-content:center}
+.blocks{grid-column:1/13;display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--paper)}
+.blocks span{padding:16px 18px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:14px}
+.blocks span:nth-child(1){background:var(--paper);color:var(--black)}
+.blocks span:nth-child(2){background:var(--red)}
+.blocks span:nth-child(3){background:var(--yellow);color:var(--black)}
+.blocks span:nth-child(4){background:var(--blue)}
+
+/* generic section */
+.sec{display:grid;grid-template-columns:repeat(12,1fr);border-bottom:2px solid var(--paper)}
+.sec > *{min-width:0}
+.sec-side{grid-column:1/5;padding:40px 24px 40px 0;border-right:2px solid var(--paper);display:grid;gap:14px;align-content:start}
+.sec-main{grid-column:5/13;padding:40px 0 40px 32px;display:grid;gap:18px;align-content:start}
+.sec h2{font-size:clamp(32px,4vw,52px)}
+.big{font-size:clamp(21px,2.2vw,27px);font-weight:500;line-height:1.3;max-width:34ch}
+.sec-main p{max-width:60ch}
+
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--paper);margin-top:12px}
+.steps div{padding:18px;border-right:2px solid var(--paper);display:grid;gap:6px;align-content:start}
+.steps div:last-child{border-right:0}
+.steps b{font-size:22px;font-weight:800;text-transform:uppercase}
+.steps p{font-size:14.5px;color:var(--grey)}
+
+/* rooms */
+.room{display:grid;grid-template-columns:repeat(12,1fr);border-bottom:2px solid var(--paper)}
+.room > *{min-width:0}
+.room-mark{grid-column:1/4;padding:32px 24px 32px 0;border-right:2px solid var(--paper);display:grid;gap:22px;align-content:start}
+.numeral{font-size:clamp(90px,11vw,160px);font-weight:800;line-height:.8}
+.shape{width:96px;height:96px;max-width:100%}
+.sq{background:var(--red)}
+.tri{width:0;height:0;border-left:52px solid transparent;border-right:52px solid transparent;border-bottom:92px solid var(--yellow)}
+.ci{border-radius:50%;background:var(--blue)}
+.ln{height:6px;width:120px;background:var(--paper)}
+.room-mark h2{font-size:clamp(26px,2.6vw,38px)}
+.room-mark .meta{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--grey);text-transform:uppercase}
+.room-main{grid-column:4/13;padding:32px 0 40px 28px;display:grid;gap:28px}
+.pics{display:grid;grid-template-columns:1.55fr 1fr;gap:16px;align-items:start}
+.pics > *{min-width:0}
+.room-body{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.room-body > *{min-width:0}
+
+/* player */
+.player{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;border:2px solid var(--paper);padding:14px 16px;margin-bottom:18px}
+.play{width:50px;height:50px;border:0;border-radius:50%;background:var(--yellow);color:var(--black);cursor:pointer;display:grid;place-items:center}
+.play svg{width:18px;height:18px;fill:currentColor}
+.ptrack{display:grid;gap:8px;min-width:0}
+.ptrack .t{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey)}
+.ptrack .t b{color:var(--paper);font-weight:500}
+.bar{appearance:none;-webkit-appearance:none;width:100%;height:4px;background:var(--line);cursor:pointer;border-radius:0}
+.bar::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;background:var(--red);border-radius:0}
+.bar::-moz-range-thumb{width:14px;height:14px;border:0;background:var(--red);border-radius:0}
+.score{list-style:none;margin:0;padding:0;display:grid;border-top:1px solid var(--line)}
+.score li{display:grid;grid-template-columns:30px 1fr;gap:8px;padding-block:10px;border-bottom:1px solid var(--line);font-size:15.5px}
+.score li span:first-child{font-family:var(--mono);color:var(--grey);font-size:12px;padding-top:3px}
+
+/* scent */
+.scent{background:var(--paper);color:var(--black);display:grid;gap:14px;padding:22px}
+.scent .label{color:#5E5B55}
+.scent h3{font-size:24px}
+.scent .dir{font-size:15px}
+.pyr{display:grid;border-top:2px solid var(--black)}
+.pyr div{display:grid;grid-template-columns:62px 1fr;gap:10px;padding-block:8px;border-bottom:1px solid rgba(11,11,11,.2);font-size:14.5px}
+.pyr div > *{min-width:0}
+.pyr .label{padding-top:2px}
+.odd{font-weight:700;font-size:17px;line-height:1.3}
+.sw{display:flex;gap:0}
+.sw i{width:34px;height:20px;display:block}
+
+/* credits */
+.credits dl{display:grid;grid-template-columns:max-content 1fr;gap:12px 28px;margin:0}
+.credits dt{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);padding-top:6px}
+.credits dd{margin:0;font-size:24px;font-weight:700;text-transform:uppercase;letter-spacing:.02em}
+.funder{margin-top:12px;padding-top:20px;border-top:2px solid var(--paper);display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.funder p{font-size:15px;max-width:52ch}
+footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:22px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+
+@media (max-width:860px){
+  .hero-title,.hero-img,.sec-side,.sec-main,.room-mark,.room-main{grid-column:1/13}
+  .hero-title,.sec-side,.room-mark{border-right:0;padding-right:0}
+  .hero-img{padding:0 0 24px}
+  .sec-side{padding-bottom:0}
+  .sec-main,.room-main{padding-left:0}
+  .room-mark{grid-template-columns:auto auto 1fr;align-items:end;gap:18px;border-bottom:2px solid var(--paper);padding-block:24px}
+  .shape{width:64px;height:64px}
+  .tri{width:0;height:0;border-left-width:36px;border-right-width:36px;border-bottom-width:62px}
+  .ln{width:64px}
+  .numeral{font-size:84px}
+  .pics,.room-body{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .steps div:nth-child(2){border-right:0}
+  .steps div:nth-child(-n+2){border-bottom:2px solid var(--paper)}
+  .blocks{grid-template-columns:1fr 1fr}
+  .top nav{display:none}
+}
+@media (max-width:440px){
+  .room-mark{grid-template-columns:auto 1fr}
+  .room-mark .shape{display:none}
+  .credits dl{grid-template-columns:1fr;gap:2px}
+  .credits dd{margin-bottom:12px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .disc{animation:roll 1.2s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes roll{from{transform:translateX(-60px) rotate(-90deg)}to{transform:none}}
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="name">Anna Katsur</div>
+    <nav aria-label="Sections"><a href="#research">Research</a><a href="#rooms">Exhibition</a><a href="#credits">Credits</a></nav>
+  </header>
+
+  <div class="hero">
+    <div class="hero-title">
+      <div class="disc" aria-hidden="true"></div>
+      <h1>Sensory<span class="e">Echoes</span></h1>
+      <p class="lede">Paintings you can hear, smell and touch. A research project and exhibition by Anna Katsur.</p>
+      <p class="label" style="margin-top:20px;color:var(--paper)">1–17 May 2026 · Hackney Downs Studios, London</p>
+      <div class="funders">
+        <a href="https://www.artscouncil.org.uk" target="_blank" rel="noopener"><img src="img/funders.webp" alt="Funded by UK Government. The National Lottery." width="939" height="162"></a>
+        <p>Supported using public funding by Arts Council England.</p>
+      </div>
+    </div>
+    <figure class="hero-img">
+      <img src="img/w1-b.jpg" alt="Painting of an empty room with an orange floor, an ultramarine palm and a small figure." width="1280" height="960">
+      <figcaption>The Room That Remembers</figcaption>
+    </figure>
+    <div class="blocks" aria-label="Senses"><span>Image</span><span>Sound</span><span>Scent</span><span>Texture</span></div>
+  </div>
+
+  <section class="sec" id="research">
+    <div class="sec-side"><p class="label">01 · Research</p><h2>Painting, trained, returned</h2></div>
+    <div class="sec-main">
+      <p class="big">Anna Katsur paints in oil and trains a neural network on her own canvases.</p>
+      <p>In Sensory Echoes each painting gets its own music and its own scent. The image goes into the machine and comes back into the room as sound, smell and surface. Music by Anna Katsur, with consultation from Max Viner.</p>
+      <p>Supported by Arts Council England through Developing Your Creative Practice.</p>
+      <div class="steps">
+        <div><span class="label">1</span><b>Paint</b><p>Oil on canvas.</p></div>
+        <div><span class="label">2</span><b>Train</b><p>A neural network learns her style.</p></div>
+        <div><span class="label">3</span><b>Translate</b><p>Each image becomes music and scent.</p></div>
+        <div><span class="label">4</span><b>Return</b><p>The work comes back to the room.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="rooms">
+    <div class="sec-side"><p class="label">02 · Exhibition</p><h2>Three rooms</h2></div>
+    <div class="sec-main">
+      <p class="label" style="color:var(--yellow)">1–17 May 2026 · Hackney Downs Studios, London</p>
+      <p class="big">A wall, a door, a palm, the sea and one small figure.</p>
+      <p>Press play in each room and listen while you look.</p>
+    </div>
+  </section>
+
+  <!-- I -->
+  <article class="room" id="room-1">
+    <div class="room-mark">
+      <div class="numeral">I</div>
+      <div class="shape sq" aria-hidden="true"></div>
+      <div><h2>The Room That Remembers</h2></div>
+    </div>
+    <div class="room-main">
+      <div class="pics">
+        <figure><img src="img/w1-b.jpg" alt="The Room That Remembers: an empty white room, orange floor, red square on the wall, ultramarine palm and a lone figure." width="1280" height="960" loading="lazy"><figcaption>The Room That Remembers</figcaption></figure>
+        <figure><img src="img/w1-a.jpg" alt="The painting in a sunlit studio beside a sculpture of stacked stones." width="1448" height="1086" loading="lazy"><figcaption>In the studio</figcaption></figure>
+      </div>
+      <div class="room-body">
+        <div>
+          <div class="player" data-src="audio/closed_room.mp3">
+            <button class="play" type="button" aria-label="Play: Closed Room"><svg viewBox="0 0 24 24"><path d="M7 4l14 8-14 8z"/></svg></button>
+            <div class="ptrack"><div class="t"><b>Closed Room</b><span class="time">0:00</span></div><input class="bar" type="range" min="0" max="1000" value="0" aria-label="Seek: Closed Room" id="bar-1"></div>
+          </div>
+          <ol class="score">
+            <li><span>01</span><span>G, F, E♭, D. Six times in a row.</span></li>
+            <li><span>02</span><span>Strings held within one octave.</span></li>
+            <li><span>03</span><span>Steady quavers, like a heartbeat.</span></li>
+            <li><span>04</span><span>Small-room reverb. Narrow stereo.</span></li>
+            <li><span>05</span><span>The violin climbs and falls. A minor chord. The figure stays.</span></li>
+          </ol>
+        </div>
+        <aside class="scent" aria-label="Scent 01">
+          <p class="label">Scent 01</p>
+          <h3>The Room That Remembers</h3>
+          <p class="dir">Mineral, dusty, aldehydic, faintly skin-like.</p>
+          <div class="pyr">
+            <div><span class="label">Top</span><span>Aldehydes, ozone, bitter orange zest</span></div>
+            <div><span class="label">Heart</span><span>Orris root, white chalk, dry plaster, warm dust</span></div>
+            <div><span class="label">Base</span><span>Iso E Super, Ambroxan, white musk, concrete</span></div>
+          </div>
+          <p>An empty room after a day of sun. Someone has just left.</p>
+          <p class="odd">Opens cold. Turns warm, like skin.</p>
+          <div class="sw" aria-label="Colour: dusty beige, ultramarine"><i style="background:#CDBBA0"></i><i style="background:#2338A0"></i></div>
+        </aside>
+      </div>
+    </div>
+  </article>
+
+  <!-- II -->
+  <article class="room" id="room-2">
+    <div class="room-mark">
+      <div class="numeral">II</div>
+      <div class="shape tri" aria-hidden="true"></div>
+      <div><h2>Somewhere, Nothing Happens</h2></div>
+    </div>
+    <div class="room-main">
+      <div class="pics">
+        <figure><img src="img/w2-b.jpg" alt="Somewhere, Nothing Happens: a white building with a red door by a blue sea, a palm's shadow and a tiny figure." width="960" height="1280" loading="lazy"><figcaption>Somewhere, Nothing Happens</figcaption></figure>
+        <figure><img src="img/w2-a.jpg" alt="The artist looking at the painting in the exhibition, a small sculpture on a plinth beside her." width="1007" height="1562" loading="lazy"><figcaption>Exhibition view</figcaption></figure>
+      </div>
+      <div class="room-body">
+        <div>
+          <div class="player" data-src="audio/red_door.mp3">
+            <button class="play" type="button" aria-label="Play: Red Door"><svg viewBox="0 0 24 24"><path d="M7 4l14 8-14 8z"/></svg></button>
+            <div class="ptrack"><div class="t"><b>Red Door</b><span class="time">0:00</span></div><input class="bar" type="range" min="0" max="1000" value="0" aria-label="Seek: Red Door" id="bar-2"></div>
+          </div>
+          <ol class="score">
+            <li><span>01</span><span>Solo harpsichord. A Bach-style prelude.</span></li>
+            <li><span>02</span><span>Rhodes, walking bass, quiet ride. The vibraphone sings the theme.</span></li>
+            <li><span>03</span><span>Harpsichord counterpoint. Straight time against swing.</span></li>
+            <li><span>04</span><span>The prelude returns. Last chord: Dm6/9, unresolved. The red door.</span></li>
+          </ol>
+        </div>
+        <aside class="scent" aria-label="Scent 03">
+          <p class="label">Scent 03</p>
+          <h3>Somewhere, Nothing Happens</h3>
+          <p class="dir">Green, salty, resinous, animal depth.</p>
+          <div class="pyr">
+            <div><span class="label">Top</span><span>Green mandarin, fig leaf, pink pepper, salt</span></div>
+            <div><span class="label">Heart</span><span>Mastic, immortelle, saffron, dry herbs</span></div>
+            <div><span class="label">Base</span><span>Labdanum, warm sand, leather, ambrette</span></div>
+          </div>
+          <p>Blue horizon, white walls, a palm without shade. Hot air, a cold wind.</p>
+          <p class="odd">A memory of a place you have never been.</p>
+          <div class="sw" aria-label="Colour: cobalt blue, faded orange, dark red"><i style="background:#1F47B8"></i><i style="background:#D9883A"></i><i style="background:#8E1B1B"></i></div>
+        </aside>
+      </div>
+    </div>
+  </article>
+
+  <!-- Sculpture -->
+  <article class="room" id="sculpture">
+    <div class="room-mark">
+      <div class="numeral" style="font-size:clamp(60px,7vw,100px)">—</div>
+      <div class="shape ln" aria-hidden="true"></div>
+      <div><h2>The Distance Between Two Things</h2><p class="meta" style="margin-top:10px">Sculpture</p></div>
+    </div>
+    <div class="room-main">
+      <div class="room-body">
+        <figure><img src="img/w3-a.jpg" alt="A stone sculpture on a white plinth in front of a large painting of a white house, a palm and the sea." width="1312" height="1199" loading="lazy"><figcaption>Exhibition view</figcaption></figure>
+        <div style="display:grid;gap:18px">
+          <p class="big">Two stones. A metal line between them.</p>
+          <p>Made in consultation with ceramicist Anya Salaeva.</p>
+          <aside class="scent" aria-label="Scent 02">
+            <p class="label">Scent 02</p>
+            <h3>The Distance Between Two Things</h3>
+            <p class="dir">Metallic, salty, woody-mineral.</p>
+            <div class="pyr">
+              <div><span class="label">Top</span><span>Black pepper, cold metal, salt air</span></div>
+              <div><span class="label">Heart</span><span>Wet flint, galbanum, dry cedar, seawater</span></div>
+              <div><span class="label">Base</span><span>Vetiver, Cashmeran, grey amber, smoky woods</span></div>
+            </div>
+            <p>Cold steel, then stone after rain.</p>
+            <p class="odd">Cold, smooth and porous.</p>
+            <div class="sw" aria-label="Colour: graphite, silver, grey-green"><i style="background:#3A3D42"></i><i style="background:#B9BEC4"></i><i style="background:#7E8C7A"></i></div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- III -->
+  <article class="room" id="room-3">
+    <div class="room-mark">
+      <div class="numeral">III</div>
+      <div class="shape ci" aria-hidden="true"></div>
+      <div><h2>Path</h2><p class="meta" style="margin-top:10px">2025 · 152 × 101 cm</p></div>
+    </div>
+    <div class="room-main">
+      <figure><img src="img/w3-b.jpg" alt="Path: a deep-blue sky over the sea, a tall palm, a white house with a red wall and a small figure walking along the shore." width="1800" height="1186" loading="lazy"><figcaption>Path, 2025</figcaption></figure>
+      <div class="room-body">
+        <div>
+          <div class="player" data-src="audio/freedom.mp3">
+            <button class="play" type="button" aria-label="Play: Freedom"><svg viewBox="0 0 24 24"><path d="M7 4l14 8-14 8z"/></svg></button>
+            <div class="ptrack"><div class="t"><b>Freedom</b><span class="time">0:00</span></div><input class="bar" type="range" min="0" max="1000" value="0" aria-label="Seek: Freedom" id="bar-3"></div>
+          </div>
+          <ol class="score">
+            <li><span>01</span><span>Harp at walking pace.</span></li>
+            <li><span>02</span><span>The flute leaps upward.</span></li>
+            <li><span>03</span><span>D major, Lydian colour. Large hall, wide stereo.</span></li>
+            <li><span>04</span><span>The key rises to E major. Violins enter. The last chord stays open.</span></li>
+          </ol>
+        </div>
+        <figure><img src="img/w3-c.jpg" alt="A visitor in a blue robe smells a jar of scent in front of the painting Path." width="853" height="1280" loading="lazy"><figcaption>Smelling the work</figcaption></figure>
+      </div>
+    </div>
+  </article>
+
+  <section class="sec credits" id="credits">
+    <div class="sec-side"><p class="label">03 · Credits</p><h2>Made by</h2></div>
+    <div class="sec-main">
+      <dl>
+        <dt>Concept and works</dt><dd>Anna Katsur</dd>
+        <dt>Music</dt><dd>Anna Katsur</dd>
+        <dt>Music consultation</dt><dd>Max Viner</dd>
+        <dt>Sculpture consultation</dt><dd>Anya Salaeva</dd>
+        <dt>Documentation</dt><dd>Maria Blum</dd>
+      </dl>
+      <div class="funder">
+        <!-- Arts Council England logo: add the official file supplied to grantees -->
+        <p><strong>Supported using public funding by Arts Council England.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <footer><span>Sensory Echoes</span><span>Anna Katsur · London</span></footer>
+</div>
+
+<script>
+(function(){
+  var players=[].slice.call(document.querySelectorAll('.player'));
+  var playIcon='<svg viewBox="0 0 24 24"><path d="M7 4l14 8-14 8z"/></svg>';
+  var pauseIcon='<svg viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>';
+  function fmt(s){if(!isFinite(s))return '0:00';var m=Math.floor(s/60),r=Math.floor(s%60);return m+':'+(r<10?'0':'')+r}
+  players.forEach(function(p){
+    var a=new Audio(); a.preload='metadata'; a.src=p.dataset.src;
+    var btn=p.querySelector('.play'), bar=p.querySelector('.bar'), time=p.querySelector('.time'), name=p.querySelector('b').textContent;
+    p._audio=a;
+    a.addEventListener('loadedmetadata',function(){time.textContent=fmt(a.duration)});
+    a.addEventListener('timeupdate',function(){ if(a.duration){bar.value=Math.round(a.currentTime/a.duration*1000); time.textContent=fmt(a.currentTime)+' / '+fmt(a.duration);} });
+    a.addEventListener('play',function(){btn.innerHTML=pauseIcon;btn.setAttribute('aria-label','Pause: '+name)});
+    a.addEventListener('pause',function(){btn.innerHTML=playIcon;btn.setAttribute('aria-label','Play: '+name)});
+    a.addEventListener('ended',function(){bar.value=0});
+    btn.addEventListener('click',function(){
+      if(a.paused){players.forEach(function(o){if(o!==p)o._audio.pause()}); a.play().catch(function(){});}
+      else a.pause();
+    });
+    bar.addEventListener('input',function(){ if(a.duration) a.currentTime=bar.value/1000*a.duration; });
+  });
+})();
+</script>
+
+</body></html>
